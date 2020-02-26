@@ -1,0 +1,23 @@
+---
+- name: Copy node_exporter tar file
+  unarchive: 
+    src: "node_exporter-0.17.0.linux-amd64.tar.gz"
+    dest: "/usr/local/"
+    copy: yes
+
+- name: Create Soft link
+  file: 
+    src: "/usr/local/node_exporter-0.17.0.linux-amd64"
+    dest: "/usr/local/node_exporter"
+    state: link
+
+- name: Copy supervisor node_exporter conf
+  copy: 
+    src: "{{ item }}"
+    dest: "/opt/supervisord/etc/{{ item }}"
+  with_items:
+  - node_exporter.conf
+
+- name: Supervisor update
+  sudo: yes
+  shell: supervisorctl update

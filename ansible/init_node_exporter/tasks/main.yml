@@ -1,0 +1,4 @@
+---
+- name: Prometheus Node_exporter
+  import_tasks: node_exporter.yml
+ 

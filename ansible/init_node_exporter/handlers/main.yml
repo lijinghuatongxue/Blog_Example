@@ -1,0 +1,14 @@
+---
+#- name: Restart supervisord
+- name: Restart supervisord
+  systemd:
+    name: supervisor
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+
+- name: Restart redis-6379
+  supervisorctl:
+    name: redis-6379
+    state: restarted
+
