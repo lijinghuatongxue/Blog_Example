@@ -1,0 +1,25 @@
+{
+  "ID": "node-exporter-127.0.0.1",
+  "Name": "node-exporter-127.0.0.1",
+  "Tags": [
+    "prom",
+    "prod",
+    "node-exporter"
+  ],
+  "Address": "127.0.0.1",
+  "Port": 9100,
+  "Meta": {
+    "app": "spring-boot",
+    "team": "appgroup",
+    "project": "bigdata"
+  },
+  "EnableTagOverride": false,
+  "Check": {
+    "HTTP": "http://127.0.0.1:9100/metrics",
+    "Interval": "10s"
+  },
+  "Weights": {
+    "Passing": 10,
+    "Warning": 1
+  }
+}
